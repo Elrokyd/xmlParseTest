@@ -1,8 +1,13 @@
+import model.Order;
+
 public class App {
+    private static final String nameValue = "ВИД_ДОК";
+
     public static void main(String[] args) {
         XMLParser xmlParser = new XMLParser();
-        //xmlParser.parse(App.class.getResource("qwe.xml").toString());
-        xmlParser.parse("D:\\IdeaProjects\\ParserSBERBANKUS\\src\\main\\resources\\qwe.xml");
+        Order order = xmlParser.parse("D:\\IdeaProjects\\ParserSBERBANKUS\\src\\main\\resources\\qwe.xml");
 
+        OrderManager orderManager = new OrderManager();
+        orderManager.sortParLists(order, nameValue);
     }
 }

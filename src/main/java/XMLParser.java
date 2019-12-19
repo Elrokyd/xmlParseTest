@@ -1,20 +1,19 @@
 import model.Order;
-import model.Services;
 
-import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.util.Collections;
 
-public class XMLParser {
+class XMLParser {
 
-    public void parse(String s) {
+    private Order order;
+
+    Order parse(String s) {
         File xmlTest = new File(s);
         if (xmlTest.exists())
             createStructure(xmlTest);
-
+        return order;
     }
 
     private void createStructure(File xmlTest) {
@@ -22,8 +21,7 @@ public class XMLParser {
         try{
             jaxbContext = JAXBContext.newInstance(Order.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            Order order = (Order) unmarshaller.unmarshal(xmlTest);
-            order.getOrderServ();
+            order = (Order) unmarshaller.unmarshal(xmlTest);
         } catch (JAXBException e) {
             e.printStackTrace();
         }

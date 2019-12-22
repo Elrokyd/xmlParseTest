@@ -1,0 +1,9 @@
+model\Services.class
+model\Pars.class
+model\Par.class
+model\ParList.class
+XMLParser.class
+App.class
+model\Serv.class
+OrderManager.class
+model\Order.class
